@@ -27,7 +27,7 @@ def test_custom_component_manifest_is_hacs_compatible() -> None:
     assert manifest["documentation"].startswith("https://github.com/ikarpovich/")
     assert manifest["issue_tracker"].endswith("/issues")
     assert manifest["codeowners"] == ["@ikarpovich"]
-    assert manifest["version"] == "0.0.0"
+    assert manifest["version"] == "0.1.0"
 
 
 def test_brand_icon_is_present_for_hacs() -> None:
