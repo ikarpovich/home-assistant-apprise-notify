@@ -30,6 +30,14 @@ def test_custom_component_manifest_is_hacs_compatible() -> None:
     assert manifest["version"] == "0.0.0"
 
 
+def test_brand_icon_is_present_for_hacs() -> None:
+    """HACS integrations need local brand assets or a brands repository entry."""
+    icon = ROOT / "custom_components" / DOMAIN / "brand" / "icon.png"
+
+    assert icon.is_file()
+    assert icon.read_bytes().startswith(b"\x89PNG")
+
+
 def test_only_one_custom_component_is_present() -> None:
     """HACS manages one integration directory per integration repository."""
     components = [path.name for path in (ROOT / "custom_components").iterdir() if path.is_dir()]
